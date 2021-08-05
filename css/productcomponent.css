@@ -32,12 +32,32 @@ a {
     border: 2px solid #eee;
 }*/
 
+.container{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #C4C4C4;
+}
+
+.box{
+    display: flex;
+    text-align: center;
+    width: 200px;
+    height: 150px;
+    background: rgb(255, 255, 255);
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px; 
+}
+
 .button {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     text-decoration: none;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
     /*padding: 5px 10px;*/
     cursor: pointer;
     background-color: transparent;
@@ -62,7 +82,7 @@ a {
 }
 
 #search {
-    position: flex;
+    position: relative;
     top: 0;
     height: 100%;
     display: flex;
@@ -78,12 +98,14 @@ a {
     padding-top: 5px;
     padding-bottom: 5px;
     outline: 0;
-    width: 350px;
-    padding-left: 40px;
-    padding-right: 40px;
+    width: 250px;
+    padding-left: 25px;
+    padding-right: 25px;
     border-radius: 5px;
     border: 1px solid #c4c4c4  
 }
 
-
+table, th, td {
+    border: 1px solid black;
+  }
 
