@@ -1,3 +1,6 @@
+<?php
+    include_once "includes/query.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +53,8 @@
     </div>
     
     <!--Tiles-->
+
+    <form action="includes/query.php" method="GET">
     <section class="p-5">
         <div class="container">
             <div class="row row-cols-4">
@@ -63,7 +68,7 @@
                                 Ultra
                             </h3>
                         </div>
-                        <a href="resultsStrap.html" class=" stretched-link"></a>
+                        <!--<a href="resultsStrap.html" class=" stretched-link"></a>-->
                     </div>
                 </div>
 
@@ -350,7 +355,7 @@
             </div>
         </div>
     </section>
-
+    </form> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
         </script>
