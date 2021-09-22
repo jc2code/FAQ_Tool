@@ -51,6 +51,54 @@
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
+                    <?php
+                        // MySQL connection strings here or use include
+                        // $connection = mysql_connection("localhost", "root");
+                        // mysql_select_db("nameOfDB") or die(mysql_error());
+
+                        // search term needs to be parsed for relevant values
+
+                        // removing any possible punctation from the search string
+                        // $search_string = preg_replace('/\p{P}/', '', $search_string); 
+
+                        // removing any short words (less than 3 letter length)
+                        // $search_string = preg_replace('~\b[a-z]{1,2}\b\~', '', $search_string);
+
+                        // split remaining words into an array
+                        // $search_terms = explode(" ", $search_string);
+
+                        // Get number of remaining search terms
+                        // $search_term_length = count($search_terms);
+
+                        // Create list for SQL query
+                        /**
+                         * $search_list = "(";
+                         * for(int i=0; i<count($search_terms)-1; i++){
+                         *  $search_list .= "\'" . $search_terms[i] . "\', "
+                         * }
+                         */
+
+                         // Create SQL query 
+                         // CAUTION: Not entirely sure if SQL injection can occur at this point given that all punctation has been stripped
+                         // However, using a prepared statement for a variable length list would be unwieldy
+                         // $sql = "SELECT * FROM table WHERE description IN {$search_list} OR [column2] IN {$search_list} OR [column3] IN {$search_list}";
+
+                         // Get Results from query
+                         // $result = $connection->query($sql);
+                         /**
+                          * if(result->num_rows > 0){
+                          *     while($row = $result->fetch_assoc()) {
+                          *         //However you want to retrieve rows and display them
+                          *     }
+                          * } else {
+                          *    // No results
+                          * }
+                          */
+
+                          // Close connection
+                          // $connection->close();
+
+                    >
                 </form>
             </div>
         </div>
@@ -65,7 +113,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         Is JBOD going to be added to the configurator?
-                    </button>
+                    </button>/
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
                     data-bs-parent="#commonQuestions">
