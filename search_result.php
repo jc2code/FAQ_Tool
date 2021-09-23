@@ -58,8 +58,8 @@
 
                         // search term needs to be parsed for relevant values
 
-                        // removing any possible punctation from the search string
-                        // $search_string = preg_replace('/\p{P}/', '', $search_string); 
+                        // removing any possible punctation from the search string except hyphens
+                        // $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
                         // removing any short words (less than 3 letter length)
                         // $search_string = preg_replace('~\b[a-z]{1,2}\b\~', '', $search_string);
@@ -76,12 +76,13 @@
                          * for(int i=0; i<count($search_terms)-1; i++){
                          *  $search_list .= "\'" . $search_terms[i] . "\', "
                          * }
+                         * $search_list .= ")";
                          */
 
                          // Create SQL query 
                          // CAUTION: Not entirely sure if SQL injection can occur at this point given that all punctation has been stripped
                          // However, using a prepared statement for a variable length list would be unwieldy
-                         // $sql = "SELECT * FROM table WHERE description IN {$search_list} OR [column2] IN {$search_list} OR [column3] IN {$search_list}";
+                         // $sql = "SELECT * FROM table WHERE description IN {$search_list} OR answer IN {$search_list} OR subject IN {$search_list}";
 
                          // Get Results from query
                          // $result = $connection->query($sql);
