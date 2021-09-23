@@ -43,7 +43,11 @@
             <div id="search">
                 <span class="material-icons md-dark md-inactive"> search </span>
             </div>
-            <input id="searchbar" type="text" />
+            <form action="search_result.php" method="post">
+                <input id="search_string" type="text"/>
+                <input type="submit"/>
+            </form>
+            
         </div>
 
         <!--Creates and links buttons to separate pages-->

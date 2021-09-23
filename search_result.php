@@ -1,4 +1,3 @@
-<?php
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,52 +51,62 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                     <?php
-                        // MySQL connection strings here or use include
-                        // $connection = mysql_connection("localhost", "root");
-                        // mysql_select_db("nameOfDB") or die(mysql_error());
+                        // get db details
+                        include($_SERVER['DOCUMENT_ROOT'].'/../includes/dbHandler.php');
 
                         // search term needs to be parsed for relevant values
+                        
+                        // Grab search_string from submitted form
+                        $search_string = $_REQUEST['search_string'];
 
                         // removing any possible punctation from the search string except hyphens
-                        // $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
+                        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
                         // removing any short words (less than 3 letter length)
-                        // $search_string = preg_replace('~\b[a-z]{1,2}\b\~', '', $search_string);
+                        $search_string = preg_replace('~\b[a-z]{1,2}\b\~', '', $search_string);
 
                         // split remaining words into an array
-                        // $search_terms = explode(" ", $search_string);
+                        $search_terms = explode(" ", $search_string);
 
                         // Get number of remaining search terms
-                        // $search_term_length = count($search_terms);
+                        $search_term_length = count($search_terms);
 
                         // Create list for SQL query
-                        /**
-                         * $search_list = "(";
-                         * for(int i=0; i<count($search_terms)-1; i++){
-                         *  $search_list .= "\'" . $search_terms[i] . "\', "
-                         * }
-                         * $search_list .= ")";
-                         */
+                        // Example list: ('add', 'card', 'missing')
+                        $search_list = "(";
+                        for( $i=0; $i<count($search_terms)-1; $i++){
+                            if($i==0){
+                                $search_list .= "\'" . $search_terms[i] . "\'";
+                            } else {
+                                $search_list .= ", \'" . $search_terms[i] . "\'";
+                            }
+                        }
+                        $search_list .= ")";
+                        
 
                          // Create SQL query 
                          // CAUTION: Not entirely sure if SQL injection can occur at this point given that all punctation has been stripped
                          // However, using a prepared statement for a variable length list would be unwieldy
-                         // $sql = "SELECT * FROM table WHERE description IN {$search_list} OR answer IN {$search_list} OR subject IN {$search_list}";
+                         // Checks description, answer, and subject for any of the search terms and returns results that match
+                         $sql = "SELECT * FROM table WHERE description IN {$search_list} OR answer IN {$search_list} OR subject IN {$search_list}";
 
                          // Get Results from query
-                         // $result = $connection->query($sql);
-                         /**
-                          * if(result->num_rows > 0){
-                          *     while($row = $result->fetch_assoc()) {
-                          *         //However you want to retrieve rows and display them
-                          *     }
-                          * } else {
-                          *    // No results
-                          * }
-                          */
+                        $result = $conn->query($sql);
+                         
+                        if($result->num_rows > 0){
+                             while($row = $result->fetch_assoc()) {
+                                //However you want to retrieve rows and display them
+                                // Placeholder
+                                // var_dump($row);
+                             }
+                        } else {
+                           // No results
+                           echo 'No Results';
+                        }
+                        
 
                           // Close connection
-                          // $connection->close();
+                        $conn->close();
 
                     >
                 </form>
