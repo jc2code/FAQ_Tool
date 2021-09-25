@@ -45,7 +45,7 @@
             </div>
             <form action="search_result.php" method="post">
                 <input id="search_string" type="text"/>
-                <input type="submit"/>
+                <input type="submit" name="ticket_search_submit"/>
             </form>
             
         </div>

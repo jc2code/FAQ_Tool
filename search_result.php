@@ -47,9 +47,10 @@
                         <a href="productFamilyStrap.html" class="nav-link">Product Family</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex" action="<? echo $_SERVER['PHP_SELF']?>">
+                    <input class="form-control me-2" name="search_string" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" name="ticket_search_submit">Search</button>
+                </form>
                     <?php
                         // get db details
                         include($_SERVER['DOCUMENT_ROOT'].'/../includes/dbHandler.php');
@@ -57,93 +58,93 @@
                         // search term needs to be parsed for relevant values
                         
                         // Grab search_string from submitted form
-                        $search_string = $_REQUEST['search_string'];
+                        if(isset($_POST['ticket_search_submit'])){
+                            $search_string = $_REQUEST['search_string'];
 
-                        // removing any possible punctation from the search string except hyphens
-                        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
+                            // removing any possible punctation from the search string except hyphens
+                            $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
-                        // removing any short words (less than 3 letter length)
-                        $search_string = preg_replace('~\b[a-z]{1,2}\b\~', '', $search_string);
+                            // removing any short words (less than 3 letter length)
+                            $search_string = preg_replace('~\b[a-z]{1,2}\b\~', '', $search_string);
 
-                        // split remaining words into an array
-                        $search_terms = explode(" ", $search_string);
+                            // split remaining words into an array
+                            $search_terms = explode(" ", $search_string);
 
-                        // Get number of remaining search terms
-                        $search_term_length = count($search_terms);
+                            // Get number of remaining search terms
+                            $search_term_length = count($search_terms);
 
-                        // Create list for SQL query
-                        // Example list: ('add', 'card', 'missing')
-                        $search_list = "(";
-                        for( $i=0; $i<count($search_terms)-1; $i++){
-                            if($i==0){
-                                $search_list .= "\'" . $search_terms[$i] . "\'";
-                            } else {
-                                $search_list .= ", \'" . $search_terms[$i] . "\'";
+                            // Create list for SQL query
+                            // Example list: ('add', 'card', 'missing')
+                            $search_list = "(";
+                            for( $i=0; $i<count($search_terms)-1; $i++){
+                                if($i==0){
+                                    $search_list .= "\'" . $search_terms[$i] . "\'";
+                                } else {
+                                    $search_list .= ", \'" . $search_terms[$i] . "\'";
+                                }
                             }
-                        }
-                        $search_list .= ")";
-                        
+                            $search_list .= ")";
+                            
 
-                         // Create SQL query 
-                         // CAUTION: Not entirely sure if SQL injection can occur at this point given that all punctation has been stripped
-                         // However, using a prepared statement for a variable length list would be unwieldy
-                         // Checks description, answer, and subject for any of the search terms and returns results that match
-                         $sql = "SELECT * FROM table WHERE description IN {$search_list} OR answer IN {$search_list} OR subject IN {$search_list}";
+                            // Create SQL query 
+                            // CAUTION: Not entirely sure if SQL injection can occur at this point given that all punctation has been stripped
+                            // However, using a prepared statement for a variable length list would be unwieldy
+                            // Checks description, answer, and subject for any of the search terms and returns results that match
+                            $sql = "SELECT * FROM table WHERE description IN {$search_list} OR answer IN {$search_list} OR subject IN {$search_list}";
 
-                         // Get Results from query
-                        $result = $conn->query($sql);
-                         
-                        if($result->num_rows > 0){
-                             while($row = $result->fetch_assoc()) {
-                                $subject = $row['subject'];
-                                $answer = $row['answer'];
-                                $url = $row['url'];
-                                $description = $row['description'];
-                                $message = <<<RES
-                                <div class="container col-sm-8">
-                                    <div class="accordion mt-3 mb-3" id="commonQuestions">
-                                        <div class="accordion-item mb-3">
-                                            <h2 class="accordion-header" id="questionOne">
-                                                <!--Accordion header and answer section-->
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 
-                                                    $subject
-                                                </button>
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
-                                                data-bs-parent="#commonQuestions">
-                                                <div class="accordion-body">
-                                                    Question:  $description
-                                                    <br>
-                                                    <br>
-                                                    Answer:  $answer
-                                                    <br>
-                                                    <br>
-                                                    $url
+                            // Get Results from query
+                            $result = $conn->query($sql);
+                            
+                            if($result->num_rows > 0){
+                                while($row = mysqli_fetch_assoc($result)) {
+                                    $subject = $row['subject'];
+                                    $answer = $row['answer'];
+                                    $url = $row['url'];
+                                    $description = $row['description'];
+                                    $message = <<<RES
+                                    <div class="container col-sm-8">
+                                        <div class="accordion mt-3 mb-3" id="commonQuestions">
+                                            <div class="accordion-item mb-3">
+                                                <h2 class="accordion-header" id="questionOne">
+                                                    <!--Accordion header and answer section-->
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 
+                                                        $subject
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
+                                                    data-bs-parent="#commonQuestions">
+                                                    <div class="accordion-body">
+                                                        Question:  $description
+                                                        <br>
+                                                        <br>
+                                                        Answer:  $answer
+                                                        <br>
+                                                        <br>
+                                                        $url
+                                                    </div>
+            
                                                 </div>
-        
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                RES;
-                                echo $message;
+                                    RES;
+                                    echo $message;
+                                
+                                    //However you want to retrieve rows and display them
+                                    // Placeholder
+                                    // var_dump($row);
+                                }
+                            } else {
+                            // No results
+                            echo 'No Results';
+                            }
                             
-                                //However you want to retrieve rows and display them
-                                // Placeholder
-                                // var_dump($row);
-                             }
-                        } else {
-                           // No results
-                           echo 'No Results';
-                        }
-                        
 
-                          // Close connection
-                        $conn->close();
-
+                            // Close connection
+                            $conn->close();
+                        }   
                     ?>
-                </form>
             </div>
         </div>
     </nav>
