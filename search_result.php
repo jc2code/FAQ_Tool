@@ -65,7 +65,7 @@
                             $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
                             // removing any short words (less than 3 letter length)
-                            $search_string = preg_replace('~\b[a-z]{1,2}\b\~', '', $search_string);
+                            $search_string = preg_replace('/\s+\S{1,2}(?!\S)|(?<!\S)\S{1,2}\s+/', '', $search_string);
 
                             // split remaining words into an array
                             $search_terms = explode(" ", $search_string);
@@ -73,24 +73,22 @@
                             // Get number of remaining search terms
                             $search_term_length = count($search_terms);
 
-                            // Create list for SQL query
-                            // Example list: ('add', 'card', 'missing')
-                            $search_list = "(";
-                            for( $i=0; $i<count($search_terms)-1; $i++){
-                                if($i==0){
-                                    $search_list .= "\'" . $search_terms[$i] . "\'";
-                                } else {
-                                    $search_list .= ", \'" . $search_terms[$i] . "\'";
-                                }
-                            }
-                            $search_list .= ")";
+                            // Create base statement for SQL query 
+                            // Concat all three columns so the where statement can search on all three simultaneously
+                            $columns = "CONCAT_WS(\" \", description, answer, subject) LIKE ";
                             
 
                             // Create SQL query 
                             // CAUTION: Not entirely sure if SQL injection can occur at this point given that all punctation has been stripped
                             // However, using a prepared statement for a variable length list would be unwieldy
                             // Checks description, answer, and subject for any of the search terms and returns results that match
-                            $sql = "SELECT * FROM table WHERE description IN {$search_list} OR answer IN {$search_list} OR subject IN {$search_list}";
+                            $sql = "SELECT * FROM table WHERE ";
+                            for( $i = 0; $i < count($search_terms); $i++){
+                                $sql .= $columns . "\"%" . $search_terms[$i] . "%\"";
+                                if ($i != count($search_terms)-1){
+                                    $sql .= " OR ";
+                                }
+                            }
 
                             // Get Results from query
                             $result = $conn->query($sql);
