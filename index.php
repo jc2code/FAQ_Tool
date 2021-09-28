@@ -44,8 +44,8 @@
                 <span class="material-icons md-dark md-inactive"> search </span>
             </div>
             <form action="search_result.php" method="post">
-                <input id="search_string" type="text"/>
-                <input type="submit" name="ticket_search_submit"/>
+                <input name="search_string" id="ticket_search_submit" type="search"/>
+                <input type="submit"/>
             </form>
             
         </div>

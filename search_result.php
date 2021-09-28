@@ -48,8 +48,8 @@
                     </li>
                 </ul>
                 <form class="d-flex" action="<? echo $_SERVER['PHP_SELF']?>">
-                    <input class="form-control me-2" name="search_string" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" name="ticket_search_submit">Search</button>
+                    <input class="form-control me-2" name="search_string" id="ticket_search_submit" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                     <?php
                         // get db details
@@ -89,6 +89,7 @@
                                     $sql .= " OR ";
                                 }
                             }
+                            $sql .= ";";
 
                             // Get Results from query
                             $result = $conn->query($sql);
