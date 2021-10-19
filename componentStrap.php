@@ -30,16 +30,19 @@
                         <a href="#" class="nav-link active" aria-current="page">Components</a>
                     </li>
                     <li class="nav-item">
-                        <a href="commonqStrap.html" class="nav-link">Common Questions</a>
+                        <a href="commonqStrap.php" class="nav-link">Common Questions</a>
                     </li>
                     <li class="nav-item">
-                        <a href="productFamilyStrap.html" class="nav-link">Product Family</a>
+                        <a href="productFamilyStrap.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>sultsStrap.ht
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <!--Boxes-->
     <section class="p-5">
@@ -57,7 +60,7 @@
                             <h3 class="card-title mb-3">
                                 CPU
                             </h3>
-                            <a href="#" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=CPU" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +74,7 @@
                                 Memory
                             </h3>
                         </div>
-                        <a href="#" class=" stretched-link"></a>
+                        <a href="includes/component_results.inc.php?tag=Memory" onclick="post" class=" stretched-link"></a>
                     </div>
                 </div>
                 <div class="col-s g-4">
@@ -83,7 +86,7 @@
                             <h3 class="card-title mb-3">
                                 AOC
                             </h3>
-                            <a href="#" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=AOC" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +99,7 @@
                             <h3 class="card-title mb-3">
                                 TPM
                             </h3>
-                            <a href="#" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=Tpm" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +112,7 @@
                             <h3 class="card-title mb-3">
                                 Drives
                             </h3>
-                            <a href="#" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=Drives" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +125,7 @@
                             <h3 class="card-title mb-3">
                                 Motherboard
                             </h3>
-                            <a href="#" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=Motherboard" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -135,7 +138,7 @@
                             <h3 class="card-title mb-3">
                                 Add-on parts
                             </h3>
-                            <a href="#" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=add_on_parts" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>

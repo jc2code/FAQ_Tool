@@ -18,7 +18,7 @@
         <!--navbar-->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">
-                <a href="index.html" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <img src="https://www.supermicro.com/sites/default/files/Super_Micro_Computer_Logo.svg" height="50"
                         width="100" />
                 </a>
@@ -29,20 +29,20 @@
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
 
                         <li class="nav-item">
-                            <a href="componentStrap.html" class="nav-link">Components</a>
+                            <a href="componentStrap.php" class="nav-link">Components</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="commonqStrap.html" class="nav-link">Common Questions</a>
+                            <a href="commonqStrap.php" class="nav-link">Common Questions</a>
                         </li>
 
                         <li class="nav-item active">
                             <a href="#" class="nav-link active" aria-current="page">Product Family</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form action="search_result.php" method="get">
+                        <input name="search_string" type="search"/>
+                        <input type="submit"/>
                     </form>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     <div class="card bg-light text-dark">                     
                         <div class="card-body text-center">
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=ultra" onclick="post">Ultra</a>
+                            <a href="includes/family_results.inc.php?family=ultra" onclick="post">Ultra</a>
                             </h3>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="card bg-light text-dark">                      
                         <div class="card-body text-center">
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=clouddc" onclick="post">Cloud DC</a>
+                            <a href="includes/family_results.inc.php?family=cloud_dc" onclick="post">Cloud DC</a>
                             </h3>
                         </div>
                     </div>
@@ -78,19 +78,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=gpu" onclick="post">GPU</a>
-                            </h3>
-                        </div>
-                    </a>
-                    </div>
-                </div>
-
-                <div class="col-s g-4">
-                    <div class="card bg-light text-dark">
-                        <div class="card-body text-center">
-
-                            <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=twin" onclick="post" class=" stretched-link">Twin</a>
+                            <a href="includes/family_results.inc.php?family=gpu" onclick="post">GPU</a>
                             </h3>
                         </div>
                     </div>
@@ -101,7 +89,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=fat_twin" onclick="post" class=" stretched-link">Fat Twin</a>
+                            <a href="includes/family_results.inc.php?family=twin" onclick="post" class=" stretched-link">Twin</a>
                             </h3>
                         </div>
                     </div>
@@ -112,7 +100,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=big_twin" onclick="post" class=" stretched-link">Big Twin</a>
+                            <a href="includes/family_results.inc.php?family=fat_twin" onclick="post" class=" stretched-link">Fat Twin</a>
                             </h3>
                         </div>
                     </div>
@@ -123,7 +111,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=mainstream" onclick="post" class=" stretched-link">Mainstream</a>
+                            <a href="includes/family_results.inc.php?family=big_twin" onclick="post" class=" stretched-link">Big Twin</a>
                             </h3>
                         </div>
                     </div>
@@ -134,7 +122,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=microcloud" onclick="post" class=" stretched-link">Micro Cloud</a>
+                            <a href="includes/family_results.inc.php?family=mainstream" onclick="post" class=" stretched-link">Mainstream</a>
                             </h3>
                         </div>
                     </div>
@@ -145,7 +133,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=iot" onclick="post" class=" stretched-link">IOT</a>
+                            <a href="includes/family_results.inc.php?family=microcloud" onclick="post" class=" stretched-link">Micro Cloud</a>
                             </h3>
                         </div>
                     </div>
@@ -156,7 +144,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=up" onclick="post" class=" stretched-link">UP</a>
+                            <a href="includes/family_results.inc.php?family=iot" onclick="post" class=" stretched-link">IOT</a>
                             </h3>
                         </div>
                     </div>
@@ -167,7 +155,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=up_storage" onclick="post" class=" stretched-link">UP Storage</a>
+                            <a href="includes/family_results.inc.php?family=up" onclick="post" class=" stretched-link">UP</a>
                             </h3>
                         </div>
                     </div>
@@ -178,7 +166,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=up_workstation" onclick="post" class=" stretched-link">UP Workstation</a>
+                            <a href="includes/family_results.inc.php?family=up_storage" onclick="post" class=" stretched-link">UP Storage</a>
                             </h3>
                         </div>
                     </div>
@@ -189,7 +177,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=hyper" onclick="post" class=" stretched-link">Hyper</a>
+                            <a href="includes/family_results.inc.php?family=up_workstation" onclick="post" class=" stretched-link">UP Workstation</a>
                             </h3>
                         </div>
                     </div>
@@ -200,7 +188,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=super_workstation" onclick="post" class=" stretched-link">Super Workstation</a>
+                            <a href="includes/family_results.inc.php?family=hyper" onclick="post" class=" stretched-link">Hyper</a>
                             </h3>
                         </div>
                     </div>
@@ -211,7 +199,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=wio" onclick="post" class=" stretched-link">WIO</a>
+                            <a href="includes/family_results.inc.php?family=super_workstation" onclick="post" class=" stretched-link">Super Workstation</a>
                             </h3>
                         </div>
                     </div>
@@ -222,7 +210,18 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=storage" onclick="post" class=" stretched-link">Storage</a>
+                            <a href="includes/family_results.inc.php?family=wio" onclick="post" class=" stretched-link">WIO</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-s g-4">
+                    <div class="card bg-light text-dark">
+                        <div class="card-body text-center">
+
+                            <h3 class="card-title mb-3">
+                            <a href="includes/family_results.inc.php?family=storage" onclick="post" class=" stretched-link">Storage</a>
                             </h3>
                         </div>
                     </div>
@@ -233,7 +232,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=amd_ultra" onclick="post" class=" stretched-link">AMD Ultra</a>
+                            <a href="includes/family_results.inc.php?family=amd_ultra" onclick="post" class=" stretched-link">AMD Ultra</a>
                             </h3>
                         </div>
                     </div>
@@ -244,7 +243,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=amd_wio" onclick="post" class=" stretched-link">AMD WIO</a>
+                            <a href="includes/family_results.inc.php?family=amd_wio" onclick="post" class=" stretched-link">AMD WIO</a>
                             </h3>
                         </div>
                     </div>
@@ -256,7 +255,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=amd_gpu" onclick="post" class=" stretched-link">AMD GPU</a>
+                            <a href="includes/family_results.inc.php?family=amd_gpu" onclick="post" class=" stretched-link">AMD GPU</a>
                             </h3>
                         </div>
                     </div>
@@ -267,7 +266,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=amd_clouddc" onclick="post" class=" stretched-link">AMD Cloud DC</a>
+                            <a href="includes/family_results.inc.php?family=amd_clouddc" onclick="post" class=" stretched-link">AMD Cloud DC</a>
                             </h3>
                         </div>
                     </div>
@@ -278,7 +277,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/results.inc.php?family=amd_big_twin" onclick="post" class=" stretched-link">AMD Big Twin</a>
+                            <a href="includes/family_results.inc.php?family=amd_big_twin" onclick="post" class=" stretched-link">AMD Big Twin</a>
                             </h3>
                         </div>
                     </div>

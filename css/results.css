@@ -1,0 +1,7 @@
+div.centre {
+    width: 200px;
+    display: block;
+    background-color: #eee;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -38,6 +38,7 @@
             Internal FAQ Tool
         </div>
 
+        
         <!--Search bar properties-->
         <div id="searchbarcontainer">
             <div id="search">
@@ -45,7 +46,6 @@
             </div>
             <input id="searchbar" type="text" />
         </div>
-
         <!--Creates and links buttons to separate pages-->
         <div id="buttons">
             <div type="button" class="btn btn-light"> <a href="commonqStrap.php">Common Questions</a> </div>

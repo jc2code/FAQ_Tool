@@ -37,13 +37,13 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a href="componentStrap.html" class="nav-link">Components</a>
+                        <a href="componentStrap.php" class="nav-link">Components</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page"> Common Questions</a>
+                        <a href="commonqStrap.php" class="nav-link active" aria-current="page"> Common Questions</a>
                     </li>
                     <li class="nav-item">
-                        <a href="productFamilyStrap.html" class="nav-link">Product Family</a>
+                        <a href="productFamilyStrap.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
                 <form class="d-flex">
