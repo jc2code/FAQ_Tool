@@ -88,10 +88,10 @@ include_once "dbhandler.inc.php";
                             // However, using a prepared statement for a variable length list would be unwieldy
                             // Checks description, answer, and subject for any of the search terms and returns results that match
                             $sql = "SELECT * FROM table WHERE ";
-                            for( $i = 0; $i < count($search_terms); $i++){
+                            for( $i = 0; $i < count($search_terms ); $i++){
                                 $sql .= $columns . "\"%" . $search_terms[$i] . "%\"";
                                 if ($i != count($search_terms)-1){
-                                    $sql .= " OR ";
+                                    $sql .= " OR "; 
                                 }
                             }
                             $sql .= ";";
@@ -99,50 +99,47 @@ include_once "dbhandler.inc.php";
                             // Get Results from query
                             $result = $conn->query($sql);
                             
-                            if($result->num_rows > 0){
-                                while($row = mysqli_fetch_assoc($result)) {
-                                    $subject = $row['subject'];
-                                    $answer = $row['answer'];
-                                    $url = $row['url'];
-                                    $description = $row['description'];
-                                    $message = <<<RES
-                                    <div class="container col-sm-8">
-                                        <div class="accordion mt-3 mb-3" id="commonQuestions">
-                                            <div class="accordion-item mb-3">
-                                                <h2 class="accordion-header" id="questionOne">
-                                                    <!--Accordion header and answer section-->
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 
-                                                        $subject
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
-                                                    data-bs-parent="#commonQuestions">
-                                                    <div class="accordion-body">
-                                                        Question:  $description
-                                                        <br>
-                                                        <br>
-                                                        Answer:  $answer
-                                                        <br>
-                                                        <br>
-                                                        $url
-                                                    </div>
-            
+                        
+                            while($row = mysqli_fetch_assoc($result)) {
+                                $subject = $row['subject'];
+                                $answer = $row['answer'];
+                                $url = $row['url'];
+                                $description = $row['description'];
+                                $message = <<<RES
+                                <div class="container col-sm-8">
+                                    <div class="accordion mt-3 mb-3" id="commonQuestions">
+                                        <div class="accordion-item mb-3">
+                                            <h2 class="accordion-header" id="questionOne">
+                                                <!--Accordion header and answer section-->
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 
+                                                    $subject
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
+                                                data-bs-parent="#commonQuestions">
+                                                <div class="accordion-body">
+                                                    Question:  $description
+                                                    <br>
+                                                    <br>
+                                                    Answer:  $answer
+                                                    <br>
+                                                    <br>
+                                                    $url
                                                 </div>
+        
                                             </div>
                                         </div>
                                     </div>
-                                    RES;
-                                    echo $message;
-                                
-                                    //However you want to retrieve rows and display them
-                                    // Placeholder
-                                    // var_dump($row);
-                                }
-                            } else {
-                            // No results
-                            echo 'No Results';
+                                </div>
+                                RES;
+                                echo $message;
+                            
+                                //However you want to retrieve rows and display them
+                                // Placeholder
+                                // var_dump($row);
                             }
+                       
                             
 
                             // Close connection

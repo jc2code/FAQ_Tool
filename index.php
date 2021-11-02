@@ -19,7 +19,7 @@
         <!--navbar-->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">
-                <a href="index.html" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <img src="https://www.supermicro.com/sites/default/files/Super_Micro_Computer_Logo.svg" height="50"
                         width="100" />
                 </a>

@@ -36,9 +36,9 @@
                         <a href="productFamilyStrap.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form action="search_result.php" method="get">
+                        <input name="search_string" type="search"/> 
+                        <input type="submit"/>
                 </form>
             </div>
         </div>
@@ -99,7 +99,7 @@
                             <h3 class="card-title mb-3">
                                 TPM
                             </h3>
-                            <a href="includes/component_results.inc.php?tag=Tpm" onclick="post" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=TPM" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                             <h3 class="card-title mb-3">
                                 Drives
                             </h3>
-                            <a href="includes/component_results.inc.php?tag=Drives" onclick="post" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=Storage" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                             <h3 class="card-title mb-3">
                                 Add-on parts
                             </h3>
-                            <a href="includes/component_results.inc.php?tag=add_on_parts" onclick="post" class=" stretched-link"></a>
+                            <a href="includes/component_results.inc.php?tag=Add-on Part" onclick="post" class=" stretched-link"></a>
                         </div>
                     </div>
                 </div>

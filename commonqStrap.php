@@ -46,9 +46,9 @@
                         <a href="productFamilyStrap.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form action="search_result.php" method="get">
+                        <input name="search_string" type="search"/> 
+                        <input type="submit"/>
                 </form>
             </div>
         </div>

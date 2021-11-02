@@ -76,7 +76,7 @@ include_once "dbhandler.inc.php";
             $start = 0;
         }
         // Query for total records
-        $resultSet = mysqli_query($conn, "SELECT * FROM tickets_1 WHERE tag='".mysqli_escape_string($conn,$tag)."';");       
+        $resultSet = mysqli_query($conn, "SELECT * FROM tickets_2 WHERE tag='".mysqli_escape_string($conn,$tag)."';");       
         // Get total number of records
         $numRows = mysqli_num_rows($resultSet);
         
@@ -84,47 +84,45 @@ include_once "dbhandler.inc.php";
         $totalPages = $numRows/ $rpp;
         
         // Query results
-        $resultSet = mysqli_query($conn, "SELECT * FROM tickets_1 WHERE tag='{$tag}' LIMIT $start, $rpp;");
+        $resultSet = mysqli_query($conn, "SELECT * FROM tickets_2 WHERE tag='{$tag}' LIMIT $start, $rpp;");
         while($row = mysqli_fetch_assoc($resultSet)){
             $subject = $row['subject'];
             $answer = $row['answer'];
             $url = $row['url'];
-            $description = $row['description'];
+            $status = $row['status'];
             $message = <<<RES
+            
             
             <div class="container col-sm-8">
                 <div class="accordion mt-3 mb-3" id="commonQuestions">
-                    <div class="accordion-item mb-3">
-                        <h2 class="accordion-header" id="questionOne">
-                            <!--Accordion header and answer section-->
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> 
-                                $subject
-                            </button>
-                        </h2>
-                        <div id="collapseOne"  class="accordion-collapse collapse" aria-labelledby="questionOne"
-                            data-bs-parent="#commonQuestions">
-                            <div class="accordion-body">
-                                <b>Question</b>:  $description
-                                <br>
-                                <br>
-                                <b>Answer</b>:  $answer
-                                <br>
-                                <br>
-                                <b>Ticket URL</b>: <a href=$url>$url</a>
-                            </div>
+                <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="questionOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse.show"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        $subject
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="questionOne"
 
-                        </div>
-                    </div>
+                    data-bs-parent="#commonQuestions"><div class="accordion-body">
+                    <b>Status</b>:  $status
+                    <br>
+                    <br>
+                    <b>Answer</b>:  $answer
+                    <br>
+                    <br>
+                    <b>Ticket URL</b>: <a href=$url>$url</a>
+                </div>
+
+                </div>
+
+            </div>
                 </div>
             </div>
+            
+            
 
-            
-        
             RES;
-            /*
-            
-            */
             echo $message;        
         }
 ?>
