@@ -48,12 +48,16 @@
         </div>
         <!--Creates and links buttons to separate pages-->
         <div id="buttons">
-            <div type="button" class="btn btn-light"> <a href="commonqStrap.php">Common Questions</a> </div>
-            <div type="button" class="btn btn-light"> <a href="componentStrap.php">Components</a> </div>
-            <div type="button" class="btn btn-light"> <a href="productFamilyStrap.php">Product Family</a> </div>
+            <!--Adds spacing between buttons and change button text to black-->
+            <div type="button" class="btn btn-light m-2"> <a href="componentStrap.php" class="text-decoration-none text-black">Components</a> </div>
+            <div type="button" class="btn btn-light m-2"> <a href="commonqStrap.php" class="text-decoration-none text-black">Common Questions</a> </div>
+            <div type="button" class="btn btn-light m-2"> <a href="productFamilyStrap.php" class="text-decoration-none text-black">Product Family</a> </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
