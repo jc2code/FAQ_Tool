@@ -1,6 +1,7 @@
 
 <?php 
-include_once "dbhandler.inc.php";
+include($_SERVER['DOCUMENT_ROOT'].'/../includes/dbHandler.php');
+//include_once "dbhandler.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,47 +100,50 @@ include_once "dbhandler.inc.php";
                             // Get Results from query
                             $result = $conn->query($sql);
                             
-                        
-                            while($row = mysqli_fetch_assoc($result)) {
-                                $subject = $row['subject'];
-                                $answer = $row['answer'];
-                                $url = $row['url'];
-                                $description = $row['description'];
-                                $message = <<<RES
-                                <div class="container col-sm-8">
-                                    <div class="accordion mt-3 mb-3" id="commonQuestions">
-                                        <div class="accordion-item mb-3">
-                                            <h2 class="accordion-header" id="questionOne">
-                                                <!--Accordion header and answer section-->
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 
-                                                    $subject
-                                                </button>
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
-                                                data-bs-parent="#commonQuestions">
-                                                <div class="accordion-body">
-                                                    Question:  $description
-                                                    <br>
-                                                    <br>
-                                                    Answer:  $answer
-                                                    <br>
-                                                    <br>
-                                                    $url
+                            if($result->num_rows > 0){
+                                while($row = mysqli_fetch_assoc($result)) {
+                                    $subject = $row['subject'];
+                                    $answer = $row['answer'];
+                                    $url = $row['url'];
+                                    $description = $row['description'];
+                                    $message = <<<RES
+                                    <div class="container col-sm-8">
+                                        <div class="accordion mt-3 mb-3" id="commonQuestions">
+                                            <div class="accordion-item mb-3">
+                                                <h2 class="accordion-header" id="questionOne">
+                                                    <!--Accordion header and answer section-->
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 
+                                                        $subject
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
+                                                    data-bs-parent="#commonQuestions">
+                                                    <div class="accordion-body">
+                                                        Question:  $description
+                                                        <br>
+                                                        <br>
+                                                        Answer:  $answer
+                                                        <br>
+                                                        <br>
+                                                        $url
+                                                    </div>
+            
                                                 </div>
-        
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                RES;
-                                echo $message;
-                            
-                                //However you want to retrieve rows and display them
-                                // Placeholder
-                                // var_dump($row);
+                                    RES;
+                                    echo $message;
+                                
+                                    //However you want to retrieve rows and display them
+                                    // Placeholder
+                                    // var_dump($row);
+                                }
+                            } else {
+                            // No results
+                            echo 'No Results';
                             }
-                       
                             
 
                             // Close connection
