@@ -1,6 +1,6 @@
 
 <?php 
-include_once "includes/dbhandler.inc.php";
+include($_SERVER['DOCUMENT_ROOT'].'./includes/dbHandler.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

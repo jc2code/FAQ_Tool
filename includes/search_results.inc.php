@@ -1,6 +1,6 @@
 
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/FAQ_Tool/includes/dbHandler.php');
+include($_SERVER['DOCUMENT_ROOT'].'./includes/dbHandler.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
