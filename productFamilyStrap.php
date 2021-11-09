@@ -57,7 +57,7 @@
                     <div class="card bg-light text-dark">                     
                         <div class="card-body text-center">
                             <h3 class="card-title mb-3">
-                            <a href="includes/family_results.inc.php?family=Ultra" onclick="post">Ultra</a>
+                            <a href="includes/family_results.inc.php?family=Ultra" onclick="post">Ultra1</a>
                             </h3>
                         </div>
                     </div>
