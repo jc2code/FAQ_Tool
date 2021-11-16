@@ -1,9 +1,11 @@
 <?php 
 
 // We need these 4 variables to connect to a database
-$dbServername = "us-faqtool-test";
-$dbUsername = "jake";
-$dbPassword = "SM95131*";
+
+
+$dbServername = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
 $dbName = "FAQ";
 
 $conn = mysqli_connect(

@@ -1,1 +1,3 @@
-SELECT * FROM tickets WHERE family=ultra
+<?php
+
+phpinfo();

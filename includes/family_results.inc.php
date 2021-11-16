@@ -94,7 +94,7 @@ include($_SERVER['DOCUMENT_ROOT'].'./includes/dbHandler.php');
             $message = <<<RES
             
             
-            <div class="container col-sm-8">
+            
                 <div class="accordion mt-3 mb-3" id="commonQuestions">
                 <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionOne">
@@ -118,7 +118,6 @@ include($_SERVER['DOCUMENT_ROOT'].'./includes/dbHandler.php');
                 </div>
 
             </div>
-                </div>
             </div>
             
             
@@ -126,7 +125,7 @@ include($_SERVER['DOCUMENT_ROOT'].'./includes/dbHandler.php');
             RES;
             echo $message;        
         }
-?>
+    ?>
 
     <div style="text-align: center;">
       <div style="width: 500px; margin: 0 auto;"><?php
