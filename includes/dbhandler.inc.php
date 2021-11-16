@@ -5,7 +5,7 @@
 
 $dbServername = "us-faqtool-test";
 $dbUsername = "webdev";
-$dbPassword = "*SM95131*";
+$dbPassword = "SM95131*";
 $dbName = "FAQ";
 
 $conn = mysqli_connect(

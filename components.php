@@ -33,7 +33,7 @@
                         <a href="common_questions.php" class="nav-link">Common Questions</a>
                     </li>
                     <li class="nav-item">
-                        <a href="family_product.php" class="nav-link">Product Family</a>
+                        <a href="product_family.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
                 <form action="search_result.php" method="get">
