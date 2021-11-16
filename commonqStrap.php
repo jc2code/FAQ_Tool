@@ -35,7 +35,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav ms-auto mt-2 gap-3 mt-lg-0 fw-bold">
                     <li class="nav-item active">
                         <a href="componentStrap.php" class="nav-link">Components</a>
                     </li>
@@ -60,12 +60,12 @@
             <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionOne">
                     <!--Accordion header and answer section-->
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse.show"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Is JBOD going to be added to the configurator?
                     </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="questionOne"
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="questionOne"
                     data-bs-parent="#commonQuestions">
                     <div class="accordion-body">
                         Currently there are no plans to add JBOD to the configurator. Please submit manually through
@@ -76,12 +76,12 @@
             </div>
             <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse.show"
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                         Configuration for (insert system name here) does not work
                     </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="questionTwo"
+                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="questionTwo"
                     data-bs-parent="#commonQuestions">
                     <div class="accordion-body">
                         Contact internal (configurator) team directly or send them an email. Let customer know they will
@@ -92,12 +92,12 @@
             </div>
             <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse.show"
+                        data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                         Parts not listed or are missing for configuration on the configurator
                     </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="questionThree"
+                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="questionThree"
                     data-bs-parent="#commonQuestions">
                     <div class="accordion-body">
                         Check configurator and product page to confirm the issue and ensure the part missing should be
@@ -110,12 +110,12 @@
             </div>
             <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse.show"
+                        data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseThree">
                         What is the difference between warranties for the systems
                     </button>
                 </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="questionFour"
+                <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="questionFour"
                     data-bs-parent="#commonQuestions">
                     <div class="accordion-body">
                         Please refer to the warranty documents provided by internal (configurator) team via email and
@@ -126,12 +126,12 @@
             </div>
             <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse.show"
+                        data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseThree">
                         When will a system be ready in the configurator?
                     </button>
                 </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="questionFive"
+                <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="questionFive"
                     data-bs-parent="#commonQuestions">
                     <div class="accordion-body">
                         Check sharepoint excel sheet to see if it lists the specific system in question. Otherwise
