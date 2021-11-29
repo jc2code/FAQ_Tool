@@ -163,10 +163,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
                 echo $message;        
             }
         }
-        
-
-        // Close connection
-        //  $conn->close();
     }
     
     ?>

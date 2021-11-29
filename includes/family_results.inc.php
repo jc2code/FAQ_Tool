@@ -92,9 +92,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
             $url = $row['url'];
             $status = $row['status'];
             $message = <<<RES
-            
-            
-            
                 <div class="accordion mt-3 mb-3" id="commonQuestions">
                 <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionOne">
@@ -119,9 +116,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
 
             </div>
             </div>
-            
-            
-
             RES;
             echo $message;        
         }
