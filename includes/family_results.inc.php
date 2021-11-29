@@ -92,8 +92,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
             $url = $row['url'];
             $status = $row['status'];
             $message = <<<RES
+            <div class="container col-sm-8">
                 <div class="accordion mt-3 mb-3" id="commonQuestions">
-                <div class="accordion-item mb-3">
+                    <div class="accordion-item mb-3">
                 <h2 class="accordion-header" id="questionOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse.show"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -101,8 +102,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="questionOne"
-
-                    data-bs-parent="#commonQuestions"><div class="accordion-body">
+                    data-bs-parent="#commonQuestions">
+                        <div class="accordion-body">
                     <b>Status</b>:  $status
                     <br>
                     <br>
@@ -110,14 +111,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
                     <br>
                     <br>
                     <b>Ticket URL</b>: <a href=$url>$url</a>
-                </div>
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
-
-            </div>
             </div>
             RES;
-            echo $message;        
+            echo $message;      
         }
     ?>
 
