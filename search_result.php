@@ -116,7 +116,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
                 $sql .= " OR ";
             }
         }
-        //$sql .=";";
         $sql .= "LIMIT $start, $rpp;";
         $resultSet = mysqli_query($conn, $sql);
 
