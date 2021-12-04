@@ -39,12 +39,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav ms-auto mt-2 gap-3 mt-lg-0 fw-bold">
                     <li class="nav-item active">
                         <a href="components.php" class="nav-link">Components</a>
                     </li>
                     <li class="nav-item">
-                        <a href="common_questions" class="nav-link active" aria-current="page"> Common Questions</a>
+                        <a href="common_questions" class="nav-link active"> Common Questions</a>
                     </li>
                     <li class="nav-item">
                         <a href="product_family.php" class="nav-link">Product Family</a>
