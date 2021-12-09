@@ -51,7 +51,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
                         <a href="../product_family.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
-                <form action="search_result.php" method="get">
+                <form action="../search_result.php" method="get">
                         <input name="search_string" type="search"/> 
                         <input type="submit"/>
                 </form>
