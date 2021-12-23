@@ -47,7 +47,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
                         <a href="../components.php" class="nav-link">Components</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../common_questions.php" class="nav-link active" aria-current="page"> Common Questions</a>
+                        <a href="../common_questions.php" class="nav-link" aria-current="page"> Common Questions</a>
                     </li>
                     <li class="nav-item">
                         <a href="../product_family.php" class="nav-link">Product Family</a>
