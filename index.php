@@ -79,10 +79,6 @@
                 <div id="text" style ="text-align:center; font-size: 50px; color:#1B0C41;">
                     Welcome to the Internal FAQ Tool for the Supermicro Command Center Team
                 </h1>
-
-                <div id="subtext" style= "text-align: center; font-size: 35px; margin-top: 30px; color:#1B0C41;">
-                    Use the navigation tabs at the top of the page or enter a keyword based search
-                </div>
             </div>
         </div>
 
