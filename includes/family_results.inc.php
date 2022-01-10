@@ -44,7 +44,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a href="../product_family.php" class="nav-link">Product Family</a>
+                        <a href="../product_family.php" class="nav-link active">Product Family</a>
                     </li>
                     <li class="nav-item active">
                         <a href="../components.php" class="nav-link">Components</a>
