@@ -2,8 +2,7 @@
 
 // We need these 4 variables to connect to a database
 
-
-$dbServername = "us-faqtool-test";
+$dbServername = "us-faqtool-test:3307";
 $dbUsername = "webdev";
 $dbPassword = "SM95131*";
 $dbName = "FAQ";
