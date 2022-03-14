@@ -136,7 +136,7 @@
                                 <i class="bi bi-hdd"></i>
                             </div>
                             <h3 class="card-title mb-3">
-                                Add-on parts
+                                Add-on part$
                             </h3>
                             <a href="includes/component_results.inc.php?tag=Add-on Part" onclick="post" class=" stretched-link"></a>
                         </div>
