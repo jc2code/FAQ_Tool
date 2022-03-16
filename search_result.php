@@ -82,7 +82,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         // split remaining words into an array
         //$search_terms = explode(" ", $search_string);
         $search_terms = array_diff(explode(",", $search_string), array(""));
-        $search_terms = explode(" ", $search_terms[0]);
+        $search_terms = preg_split('@ @', $search_terms, NULL, PREG_SPLIT_NO_EMPTY);
         
         print_r($search_terms);
         // Get number of remaining search terms
