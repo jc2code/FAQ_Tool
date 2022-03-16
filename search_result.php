@@ -80,8 +80,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         $search_string = preg_replace($wordlist, '', $search_string);
 
         // split remaining words into an array
-        //$search_terms = explode(" ", $search_string);
+        $search_terms = explode(" ", $search_string);
         $search_terms = array_diff(explode(",", $search_string), array(""));
+        $search_terms = explode(" ", $search_terms);
         print_r($search_terms);
         // Get number of remaining search terms
         $search_term_length = count($search_terms);
