@@ -72,7 +72,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
 
         // remove common words
        //$search_string = str_replace(array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it'), '', $search_string);
-        $wordlist = array('The','the', 'and', 'or', 'of', 'Are','are', 'A','a', 'Is','is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it', 'in');
+        $wordlist = array('The','the', 'and', 'or', 'of', 'Are','are', 'A','a', 'Is','is', 'Where', 'where', 'What', 'what', 'Why', 'why', 'Who', 'who', 'for', 'not', 'to', 'it', 'in');
 
         foreach ($wordlist as &$word) {
             $word = '/\b' . preg_quote($word, '/') . '\b/';
