@@ -71,7 +71,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
         // remove common words
-        $search_string = str_replace(array("the", "and", "or", "of", "a", "is", "Where", "where", "What", "what", "for", "not", "to", "it"), '', $search_string);
+        $search_string = str_replace(array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it'), '', $search_string);
         
 
         // split remaining words into an array
