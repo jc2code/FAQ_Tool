@@ -41,14 +41,19 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                        <a href="../product_family.php" class="nav-link">Product Family</a>
+                    </li>
+<<<<<<< HEAD
+                    <li class="nav-item">
+                        <a href="../common_questions.php" class="nav-link" aria-current="page"> Common Questions</a>
+=======
                     <li class="nav-item active">
-                        <a href="../components.php" class="nav-link">Components</a>
+                        <a href="../components.php" class="nav-link active">Components</a>
+>>>>>>> jake
                     </li>
                     <li class="nav-item">
                         <a href="../common_questions.php" class="nav-link" aria-current="page"> Common Questions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../product_family.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
                 <form action="../search_result.php" method="get">

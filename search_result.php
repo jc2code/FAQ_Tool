@@ -44,7 +44,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
                         <a href="components.php" class="nav-link">Components</a>
                     </li>
                     <li class="nav-item">
-                        <a href="common_questions" class="nav-link active"> Common Questions</a>
+                        <a href="common_questions" class="nav-link"> Common Questions</a>
                     </li>
                     <li class="nav-item">
                         <a href="product_family.php" class="nav-link">Product Family</a>
@@ -70,9 +70,21 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         // removing any possible punctation from the search string except hyphens
         $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
-        // split remaining words into an array
-        $search_terms = explode(" ", $search_string);
+        // remove common words
+       //$search_string = str_replace(array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it'), '', $search_string);
+        $wordlist = array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it');
 
+        foreach ($wordlist as &$word) {
+            $word = '/\b' . preg_quote($word, '/') . '\b/';
+        }
+        $search_string = preg_replace($wordlist, '', $search_string);
+
+        // split remaining words into an array
+        //$search_terms = explode(" ", $search_string);
+        $search_terms = array_diff(explode(",", $search_string), array(""));
+        $search_terms = explode(" ", $search_terms[0]);
+        
+        print_r($search_terms);
         // Get number of remaining search terms
         $search_term_length = count($search_terms);
 

@@ -26,14 +26,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto mt-2 gap-3 mt-lg-0 fw-bold">
+                    <li class="nav-item">
+                        <a href="product_family.php" class="nav-link">Product Family</a>
+                    </li>
                     <li class="nav-item active">
                         <a href="components.php" class="nav-link active" aria-current="page">Components</a>
                     </li>
                     <li class="nav-item">
                         <a href="common_questions.php" class="nav-link">Common Questions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="product_family.php" class="nav-link">Product Family</a>
                     </li>
                 </ul>
                 <form action="search_result.php" method="get">
@@ -136,7 +136,7 @@
                                 <i class="bi bi-hdd"></i>
                             </div>
                             <h3 class="card-title mb-3">
-                                Add-on parts
+                                Add-on part$
                             </h3>
                             <a href="includes/component_results.inc.php?tag=Add-on Part" onclick="post" class=" stretched-link"></a>
                         </div>
