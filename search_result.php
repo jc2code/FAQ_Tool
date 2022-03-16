@@ -70,6 +70,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         // removing any possible punctation from the search string except hyphens
         $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
+        // Remove common words
+        $commonWords = array("the", "and", "or", "of", "a", "is", "Where", "where", "What", "what", "for",
+        "not", "to", "it");
+        foreach ($commonWords as &$word){
+            $word = '/\b' . preg_quote($word, '/') . '\b/';
+        }
+        $search_string= preg_replace($commonWords, '', $search_string);
+
         // split remaining words into an array
         $search_terms = explode(" ", $search_string);
 
