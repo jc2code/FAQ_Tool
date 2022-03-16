@@ -72,7 +72,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
 
         // remove common words
        //$search_string = str_replace(array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it'), '', $search_string);
-        $wordlist = array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it');
+        $wordlist = array('The','the', 'and', 'or', 'of', 'Are','are', 'A','a', 'Is','is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it', 'in');
 
         foreach ($wordlist as &$word) {
             $word = '/\b' . preg_quote($word, '/') . '\b/';
@@ -84,7 +84,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         //$search_terms = array_diff(explode(",", $search_string), array(""));
         $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
         
-        print_r($search_terms);
+
         // Get number of remaining search terms
         $search_term_length = count($search_terms);
 
