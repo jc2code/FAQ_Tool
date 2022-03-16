@@ -77,6 +77,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         // split remaining words into an array
         $search_terms = explode(" ", $search_string);
 
+        print_r($search_terms);
         // Get number of remaining search terms
         $search_term_length = count($search_terms);
 
