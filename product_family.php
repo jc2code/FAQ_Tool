@@ -51,9 +51,11 @@
     <section class="p-5">
         <div class="container">
             <div class="row row-cols-4">
-                <div class="col-s g-4">
-                    <div class="card bg-light text-dark">                     
+                <div class="col-s g-4 d-flex align-items">
+                    <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/sites/default/files/product/normal/SYS-2029U-TN24R4T.png>                     
                         <div class="card-body text-center">
+                           
                             <h3 class="card-title mb-3">
                             <a href="includes/family_results.inc.php?family=Ultra" onclick="post" class = "stretched-link">Ultra</a>
                             </h3>
@@ -61,8 +63,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
-                    <div class="card bg-light text-dark">                      
+                <div class="col-s g-4 d-flex align-items">
+                    <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-120C-TN10R_main.png>                      
                         <div class="card-body text-center">
                             <h3 class="card-title mb-3">
                             <a href="includes/family_results.inc.php?family=CloudDC" onclick="post" class = "stretched-link" >Cloud DC</a>
@@ -71,10 +74,10 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-420GP-TNAR+_main.png>
                         <div class="card-body text-center">
-
                             <h3 class="card-title mb-3">
                             <a href="includes/family_results.inc.php?family=GPU" onclick="post" class = "stretched-link">GPU</a>
                             </h3>
@@ -82,10 +85,10 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                        <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-120TP-DC9TR_main.png>
                         <div class="card-body text-center">
-
                             <h3 class="card-title mb-3">
                             <a href="includes/family_results.inc.php?family=Twin" onclick="post" class=" stretched-link">Twin</a>
                             </h3>
@@ -93,8 +96,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
-                    <div class="card bg-light text-dark">
+                <div class="col-s g-4 d-flex align-items">
+                    <div class="card bg-light text-dark ">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-F610P2-RTN_main.png>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -104,8 +108,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-220BT-HNTR_main.png>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -115,8 +120,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-510P-MR_main.png>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -126,8 +132,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-530MT-H8TNR_main.png>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -137,8 +144,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/productSelector/SYS-E100-12T-C_main.png>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -148,8 +156,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/mainImages/SYS-110P-WTR_main.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -159,10 +168,10 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/mainImages/SSG-110P-NTR10_main.jpg>
                         <div class="card-body text-center">
-
                             <h3 class="card-title mb-3">
                             <a href="includes/family_results.inc.php?family=UP Storage" onclick="post" class= "stretched-link">UP Storage</a>
                             </h3>
@@ -170,10 +179,10 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/a_images/products/superserver/tower/SYS-5029C-T_close.jpg>
                         <div class="card-body text-center">
-
                             <h3 class="card-title mb-3">
                             <a href="includes/family_results.inc.php?family=Up Workstation" onclick="post" class= "stretched-link">UP Workstation</a>
                             </h3>
@@ -181,8 +190,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/mainImages/SYS-120H-TNR_main.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -192,8 +202,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/mainImages/SYS-740A-T_main.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -203,8 +214,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/a_images/products/SuperServer/1U/SYS-1029P-WT.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -214,8 +226,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/files_SYS/images/System/mainImages/SSG-620P-ACR12H_main.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -225,8 +238,9 @@
                     </div>
                 </div>
                 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/a_images/products/Aplus/system/1U/AS-1023US-TR4.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -236,8 +250,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/a_images/products/Aplus/system/1U/AS-1014S-WTRT.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -248,8 +263,9 @@
                 </div>
 
      
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/a_images/products/Aplus/System/4U/AS-4124GO-NART_.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -259,8 +275,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/a_images/products/Aplus/system/1U/AS-1114CS-TNR.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
@@ -270,8 +287,9 @@
                     </div>
                 </div>
 
-                <div class="col-s g-4">
+                <div class="col-s g-4 d-flex align-items">
                     <div class="card bg-light text-dark">
+                    <img src = https://www.supermicro.com/a_images/products/Aplus/System/2U/AS-2123BT-HNC0R.jpg>
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
