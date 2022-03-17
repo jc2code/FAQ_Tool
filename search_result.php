@@ -41,13 +41,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto mt-2 gap-3 mt-lg-0 fw-bold">
                     <li class="nav-item active">
+                        <a href="product_family.php" class="nav-link">Product Family</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="components.php" class="nav-link">Components</a>
                     </li>
                     <li class="nav-item">
-                        <a href="common_questions" class="nav-link"> Common Questions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="product_family.php" class="nav-link">Product Family</a>
+                        <a href="common_questions" class="nav-link">Common Questions</a>
                     </li>
                 </ul>
                 <form action="search_result.php" method="get">
