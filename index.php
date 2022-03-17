@@ -60,10 +60,7 @@
 
                         </ul>
                         <!--Adds search functionality onto the navbar next to the buttons-->
-                        <form action="search_result.php" method="get">
-                            <input name="search_string" type="search"/> 
-                            <input type="submit"/>
-                        </form>
+    
                     </div>
                 </div>
             </nav>
@@ -78,12 +75,13 @@
             <div id="Webpagename">
                 <!--center aligns the text, sets the font size, and the font color-->
                 <div id="text" style ="text-align:center; font-size: 50px; color:#1B0C41;">
-                    Welcome to the Internal FAQ Tool for the Supermicro Command Center Team
+                    SMC Knowledge Base
                 </h1>
-
-                <div id="subtext" style= "text-align: center; font-size: 35px; margin-top: 30px; color:#1B0C41;">
-                    Use the navigation tabs at the top of the page or enter a keyword based search
-                </div>
+                    <form action="search_result.php" method="get">
+                            <input name="search_string" type="search"/> 
+                            <input type="submit"/>
+                        </form>
+                
             </div>
         </div>
 
