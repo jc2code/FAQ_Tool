@@ -1,6 +1,5 @@
-
-<?php 
-include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/dbhandler.inc.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +8,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="css/results.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!--link href="stylesheet" href = "style.css"-->
     <title>Results</title>
@@ -19,7 +18,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         .accordian-button {
             background-color: #85C1E9;
         }
-        
+
         .accordian-body {
             background-color: #fff;
         }
@@ -32,8 +31,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container">
             <a href="index.php" class="navbar-brand">
-                <img src="https://www.supermicro.com/sites/default/files/Super_Micro_Computer_Logo.svg" height="50"
-                    width="100" />
+                <img src="https://www.supermicro.com/sites/default/files/Super_Micro_Computer_Logo.svg" height="50" width="100" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
@@ -47,32 +45,33 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
                         <a href="components.php" class="nav-link">Components</a>
                     </li>
                     <li class="nav-item">
-                        <a href="common_questions" class="nav-link">Common Questions</a>
+                        <a href="common_questions.php" class="nav-link">Common Questions</a>
                     </li>
                 </ul>
                 <form action="search_result.php" method="get">
-                        <input name="search_string" type="search"/> 
-                        <input type="submit"/>
+                    <input name="search_string" type="search" />
+                    <input type="submit" />
                 </form>
-                    
+
             </div>
         </div>
     </nav>
+
     <?php
     // Pagination 
 
-        
+
     // Grab search_string from submitted form
-    if(isset($_GET['search_string'])){
+    if (isset($_GET['search_string'])) {
         //$search_string = $_REQUEST['search_string'];
         $search_string = mysqli_real_escape_string($conn, $_GET['search_string']);
 
         // removing any possible punctation from the search string except hyphens
-        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
+        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string);
 
         // remove common words
-       //$search_string = str_replace(array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it'), '', $search_string);
-        $wordlist = array('The','the', 'and', 'or', 'of', 'Are','are', 'A','a', 'Is','is', 'Where', 'where', 'What', 'what', 'Why', 'why', 'Who', 'who', 'for', 'not', 'to', 'it', 'in');
+        //$search_string = str_replace(array('the', 'and', 'or', 'of', 'a', 'is', 'Where', 'where', 'What', 'what', 'for', 'not', 'to', 'it'), '', $search_string);
+        $wordlist = array('The', 'the', 'and', 'or', 'of', 'Are', 'are', 'A', 'a', 'Is', 'is', 'Where', 'where', 'What', 'what', 'Why', 'why', 'Who', 'who', 'for', 'not', 'to', 'it', 'in');
 
         foreach ($wordlist as &$word) {
             $word = '/\b' . preg_quote($word, '/') . '\b/';
@@ -83,7 +82,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         //$search_terms = explode(" ", $search_string);
         //$search_terms = array_diff(explode(",", $search_string), array(""));
         $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
-        
+
 
         // Get number of remaining search terms
         $search_term_length = count($search_terms);
@@ -95,13 +94,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         // Create SQL query 
         // CAUTION: Not entirely sure if SQL injection can occur at this point given that all punctation has been stripped
         $sql = "SELECT * FROM tickets_2 WHERE ";
-        for( $i = 0; $i < count($search_terms); $i++){
+        for ($i = 0; $i < count($search_terms); $i++) {
             $sql .= $columns . "\"%" . $search_terms[$i] . "%\"";
-            if ($i != count($search_terms)-1){
+            if ($i != count($search_terms) - 1) {
                 $sql .= " OR ";
             }
         }
-        $sql .=";";
+        $sql .= ";";
         //$sql .= "LIMIT $start, $rpp;";
 
         // Get Results from query
@@ -110,21 +109,21 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
 
         // Pagination
         // How many records per page
-        $rpp = 5;     
+        $rpp = 5;
         // Check for set page
         isset($_GET['page']) ? $page = $_GET['page'] : $page = 0;
         // Check for page 1
-        if($page > 1){
+        if ($page > 1) {
             $start = ($page * $rpp) - $rpp;
         } else {
             $start = 0;
         }
-        $totalPages = $numRows/ $rpp;
+        $totalPages = $numRows / $rpp;
 
         $sql = "SELECT * FROM tickets_2 WHERE ";
-        for( $i = 0; $i < count($search_terms); $i++){
+        for ($i = 0; $i < count($search_terms); $i++) {
             $sql .= $columns . "\"%" . $search_terms[$i] . "%\"";
-            if ($i != count($search_terms)-1){
+            if ($i != count($search_terms) - 1) {
                 $sql .= " OR ";
             }
         }
@@ -132,8 +131,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         $resultSet = mysqli_query($conn, $sql);
 
 
-        if($resultSet->num_rows > 0){
-            while($row = mysqli_fetch_assoc($resultSet)) {
+        if ($resultSet->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($resultSet)) {
                 $subject = $row['subject'];
                 $answer = $row['answer'];
                 $url = $row['url'];
@@ -171,28 +170,28 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
                 
 
                 RES;
-                echo $message;        
+                echo $message;
             }
+        } else {
+            echo 'No Results';
         }
     }
-    
-    ?>
-    
-    <div style="text-align: center;">
-      <div style="width: 500px; margin: 0 auto;"><?php
-        for($page=1; $page <= $totalPages + 1; $page++){
-            echo '<a href="search_result.php?search_string='.$search_string.'&page='.$page.'">'. $page .'</a>  ';
-        }
-        ?></div>
-    </div>
-    
 
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-        </script>
+    ?>
+
+
+
+    <div style="text-align: center;">
+        <div style="width: 500px; margin: 0 auto;"><?php
+                                                    for ($page = 1; $page <= $totalPages + 1; $page++) {
+                                                        echo '<a href="search_result.php?search_string=' . $search_string . '&page=' . $page . '">' . $page . '</a>  ';
+                                                    }
+                                                    ?></div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

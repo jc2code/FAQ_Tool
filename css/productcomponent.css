@@ -19,7 +19,9 @@ a img {
     display: block;
 }
 
-a{
+a {
+    
+    text-align: center;
     text-decoration: none;
     color:black;
 }

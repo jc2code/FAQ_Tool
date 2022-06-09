@@ -5,3 +5,7 @@ div.centre {
     margin-left: auto;
     margin-right: auto;
   }
+
+div.column{
+  justify-content: center;
+}

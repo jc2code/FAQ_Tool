@@ -29,6 +29,10 @@ a {
     color:black; /*keeps hyperlink text color black*/
 }
 
+/* input[type=search] {
+    height: 20p
+} */
+
 /*Parameters for the contents in the main section of the page*/
 #middle {
     top: 200px; /*distance from the top*/
@@ -50,14 +54,31 @@ a {
 
 #text{
     font-weight: 500;
-    font-family: "Roboto", sans-serif;
+    font-family: "Audiowide";
+    text-align:center; 
+    font-size: 60px; 
+    
 } 
 
 #subtext {
+    
     font-family: "Roboto", sans-serif;
     font-weight: 300;
 }
 
 .material-icons.md-dark.md-inactive { 
     color: rgba(0, 0, 0, 0.26);
+}
+
+.searchBar{
+    
+    width: 100%;
+    font-size: 50px;
+    padding:20px 10px;
+    line-height:100%;
+
+}
+
+.Bar{
+    
 }

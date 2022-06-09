@@ -58,6 +58,201 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
             </div>
         </div>
     </nav>
+
+    <div class="row">
+        <aside class="col-sm-4">
+            <p>Filters</p>
+
+            <div class="card">
+                <article class="card-group-item">
+                    <header class="card-header">
+                        <h6 class="title">Product Family </h6>
+                    </header>
+                    <div class="filter-content">
+                        <div class="card-body">
+                            <form>
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        Ultra
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        Storage
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        Twin
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        CloudDC
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        GPU
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        Fat Twin
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        Big Twin
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        Mainstream
+                                    </span>
+                                </label> <!-- form-check.// -->
+                                <label class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-label">
+                                        Micro Cloud
+                                    </span>
+                                </label> <!-- form-check.// -->
+                            </form>
+
+                        </div> <!-- card-body.// -->
+                    </div>
+                </article> <!-- card-group-item.// -->
+
+                <article class="card-group-item">
+                    <header class="card-header">
+                        <h6 class="title">Choose Tag </h6>
+                    </header>
+                    <div class="filter-content">
+                        <div class="card-body">
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    General
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    GPU/AOC
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    CPU
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    Memory
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    Quotation
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    Configurator
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    SAP
+                                </span>
+                            </label>
+                        </div> <!-- card-body.// -->
+                    </div>
+                </article> <!-- card-group-item.// -->
+            </div> <!-- card.// -->
+
+
+            <div class="card">
+                <article class="card-group-item">
+                    <header class="card-header">
+                        <h6 class="title">Status </h6>
+                    </header>
+                    <div class="filter-content">
+                    <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    Open
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    Pending
+                                </span>
+                            </label>
+                            <label class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                <span class="form-check-label">
+                                    Closed
+                                </span>
+                            </label>
+                    </div>
+                </article> <!-- card-group-item.// -->
+            </div> <!-- card.// -->
+
+            <div class="card">
+                <article class="card-group-item">
+                    <header class="card-header">
+                        <h6 class="title"># of CPUs </h6>
+                    </header>
+                    <div class="filter-content">
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Min</label>
+                                    <input type="number" class="form-control" id="inputEmail4" placeholder="1">
+                                </div>
+                                <div class="form-group col-md-6 text-right">
+                                    <label>Max</label>
+                                    <input type="number" class="form-control" placeholder="4">
+                                </div>
+                            </div>
+                        </div> <!-- card-body.// -->
+                    </div>
+                </article> <!-- card-group-item.// -->
+
+                <article class="card-group-item">
+                    <div class="filter-content">
+                        <div class="card-body">
+                            <label class="btn btn-danger">
+                                <input class="" type="checkbox" name="myradio" value="">
+                                <span class="form-check-label">Delete</span>
+                            </label>
+
+                            <label class="btn btn-primary">
+                                <input class="" type="checkbox" name="myradio" value="">
+                                <span class="form-check-label">Apply</span>
+                            </label>
+                        </div> <!-- card-body.// -->
+                    </div>
+                </article> <!-- card-group-item.// -->
+
+        </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+
     <?php
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);

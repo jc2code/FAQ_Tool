@@ -138,7 +138,7 @@
                         <div class="card-body text-center">
 
                             <h3 class="card-title mb-3">
-                            <a href="includes/family_results.inc.php?family=Micro Cloud" onclick="post" class=" stretched-link">Micro Cloud</a>
+                            <a href="includes/family_results.inc.php?family=Micro Cloud" onclick="post" class=" stretched-link">MicroCloud</a>
                             </h3>
                         </div>
                     </div>
