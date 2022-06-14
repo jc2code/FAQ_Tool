@@ -1,6 +1,7 @@
 
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
+//include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
+include_once "./includes/dbhandler.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +68,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         //$search_string = $_REQUEST['search_string'];
         $search_string = mysqli_real_escape_string($conn, $_GET['search_string']);
 
+        /*// v1 search
+
         // removing any possible punctation from the search string except hyphens
         $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
 
@@ -80,8 +83,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
         $search_string = preg_replace($wordlist, '', $search_string);
 
         // split remaining words into an array
-        //$search_terms = explode(" ", $search_string);
-        //$search_terms = array_diff(explode(",", $search_string), array(""));
         $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
         
 
@@ -102,11 +103,51 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php');
             }
         }
         $sql .=";";
-        //$sql .= "LIMIT $start, $rpp;";
-
+        
         // Get Results from query
         $resultSet = mysqli_query($conn, $sql);
+        if($resultSet){
+            print("Queried succesfully");
+        }else{
+            print("Unable to query");
+        }
         $numRows = mysqli_num_rows($resultSet);
+
+        */// end v1 search block
+
+        // v2 search funtion
+        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
+        $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
+        // full text
+        $sql = "SELECT * FROM tickets_2 WHERE MATCH(subject, answer, family) AGAINST (' ";
+        $sql .= $search_string;
+        $sql .="' IN NATURAL LANGUAGE MODE);";
+        
+        print($sql);
+        $resultSet = mysqli_query($conn, $sql);
+        if($resultSet){
+            print("Queried succesfully");
+        }else{
+            print("Unable to query");
+        }
+        $numRows = mysqli_num_rows($resultSet);
+        // end v2
+        print($sql);
+
+        /*// v3 search function
+        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
+        $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
+        $sql = "SELECT * FROM tickets_2 WHERE MATCH(subject, answer, family) AGAINST (' ";
+        $sql .= $search_string;
+        $sql .="' IN NATURAL LANGUAGE MODE);";
+
+        $stmt = $conn->prepare();
+        $stmt->bind_param("s", $search_string);
+        $resultSet = $stmt->execute();
+
+
+        */// end v3 search function
+
 
         // Pagination
         // How many records per page

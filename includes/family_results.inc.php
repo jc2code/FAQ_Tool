@@ -1,7 +1,7 @@
 
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
-//include_once "dbhandler.inc.php";
+//include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
+include_once "dbhandler.inc.php";
 ?>
 
 <!DOCTYPE html>
