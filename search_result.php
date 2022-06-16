@@ -123,31 +123,8 @@ include_once "./includes/dbhandler.inc.php";
         $sql .= $search_string;
         $sql .="' IN NATURAL LANGUAGE MODE);";
         
-        print($sql);
         $resultSet = mysqli_query($conn, $sql);
-        if($resultSet){
-            print("Queried succesfully");
-        }else{
-            print("Unable to query");
-        }
         $numRows = mysqli_num_rows($resultSet);
-        // end v2
-        print($sql);
-
-        /*// v3 search function
-        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
-        $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
-        $sql = "SELECT * FROM tickets_2 WHERE MATCH(subject, answer, family) AGAINST (' ";
-        $sql .= $search_string;
-        $sql .="' IN NATURAL LANGUAGE MODE);";
-
-        $stmt = $conn->prepare();
-        $stmt->bind_param("s", $search_string);
-        $resultSet = $stmt->execute();
-
-
-        */// end v3 search function
-
 
         // Pagination
         // How many records per page
@@ -162,6 +139,7 @@ include_once "./includes/dbhandler.inc.php";
         }
         $totalPages = $numRows/ $rpp;
 
+        /* v1 pagination
         $sql = "SELECT * FROM tickets_2 WHERE ";
         for( $i = 0; $i < count($search_terms); $i++){
             $sql .= $columns . "\"%" . $search_terms[$i] . "%\"";
@@ -171,7 +149,14 @@ include_once "./includes/dbhandler.inc.php";
         }
         $sql .= "LIMIT $start, $rpp;";
         $resultSet = mysqli_query($conn, $sql);
-
+        */// v1 pagination end
+        // v2 pagination
+        $sql = "SELECT * FROM tickets_2 WHERE MATCH(subject, answer, family) AGAINST (' ";
+        $sql .= $search_string;
+        $sql .="' IN NATURAL LANGUAGE MODE) ORDER BY date DESC "; 
+        $sql .= "LIMIT $start, $rpp;";
+        $resultSet = mysqli_query($conn, $sql);
+        // v2 pagination end
 
         if($resultSet->num_rows > 0){
             while($row = mysqli_fetch_assoc($resultSet)) {
