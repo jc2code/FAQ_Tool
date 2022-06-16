@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
     <link type="text/css" rel="stylesheet" href="css/components.css">
     <title>Components</title>
 </head>
@@ -38,7 +38,7 @@
                 </ul>
                 <form action="search_result.php" method="get">
                         <input name="search_string" type="search"/> 
-                        <input type="submit"/>
+                        <button type="submit" class="btn btn-primary">search</button>
                 </form>
             </div>
         </div>
@@ -147,8 +147,27 @@
 
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link px-2 text-muted">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="product_family.php" class="nav-link px-2 text-muted">Product Family</a>
+                </li>
+                <li class="nav-item">
+                    <a href="components.php" class="nav-link px-2 text-muted">Components</a>
+                </li>
+                <li class="nav-item">
+                    <a href="common_questions.php" class="nav-link px-2 text-muted">Common Questions</a>
+                </li>
+            </ul>
+            <p class="text-center text-muted">@ 2022 Supermicro</p>
+        </footer>
+    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
         </script>
    
   </body>

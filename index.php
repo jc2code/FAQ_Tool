@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
     <!--initiating framework-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <!--settings for the background image on the webpage-->
     <style>
@@ -50,6 +50,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
                 <div class="collapse navbar-collapse" id="navmenu">
                     <ul class="navbar-nav ms-auto mt-2 gap-3 mt-lg-0 fw-bold">
                         <li class="nav-item">
@@ -77,18 +78,19 @@
         <div id="Webpagename">
             <!--center aligns the text, sets the font size, and the font color-->
             <div class="font-effect-fire" id="text">
-                SuperMicro proudly present Knowledge Base
+                Knowledge Base
             </div>
 
             <form class="searchBar" action="search_result.php" method="get">
-                <input class= "form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="search_string" type="search" />
-                <input type="submit" />
+                <input id= "Bar" class= "form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="search_string" type="search" />
+                <button type="submit" class="btn btn-outline-primary">search</button>
+                <!-- <input type="submit" class="btn btn-outline-primary"/>  -->
             </form>
 
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 </body>
 

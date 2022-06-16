@@ -40,7 +40,7 @@
                     </ul>
                     <form action="search_result.php" method="get">
                         <input name="search_string" type="search"/> 
-                        <input type="submit"/>
+                        <button type="submit" class="btn btn-primary">search</button>
                     </form>
                 </div>
             </div>
@@ -302,6 +302,26 @@
             </div>
         </div>
     </section>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link px-2 text-muted">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="product_family.php" class="nav-link px-2 text-muted">Product Family</a>
+                </li>
+                <li class="nav-item">
+                    <a href="components.php" class="nav-link px-2 text-muted">Components</a>
+                </li>
+                <li class="nav-item">
+                    <a href="common_questions.php" class="nav-link px-2 text-muted">Common Questions</a>
+                </li>
+            </ul>
+            <p class="text-center text-muted">@ 2022 Supermicro</p>
+        </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">

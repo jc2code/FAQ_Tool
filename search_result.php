@@ -1,5 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/dbhandler.inc.php');
+
+include_once "./includes/dbhandler.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +10,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/dbhandler.inc.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="css/results.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
     <!--link href="stylesheet" href = "style.css"-->
     <title>Results</title>
     <!--***requires fixes or can omit***-->
@@ -50,7 +52,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/dbhandler.inc.php');
                 </ul>
                 <form action="search_result.php" method="get">
                     <input name="search_string" type="search" />
-                    <input type="submit" />
+                    <button type="submit" class="btn btn-primary">search</button>
                 </form>
 
             </div>
@@ -79,8 +81,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/dbhandler.inc.php');
         $search_string = preg_replace($wordlist, '', $search_string);
 
         // split remaining words into an array
-        //$search_terms = explode(" ", $search_string);
-        //$search_terms = array_diff(explode(",", $search_string), array(""));
+
         $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
 
 
@@ -105,7 +106,46 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/dbhandler.inc.php');
 
         // Get Results from query
         $resultSet = mysqli_query($conn, $sql);
+
+        if ($resultSet) {
+            print("Queried succesfully");
+        } else {
+            print("Unable to query");
+        }
+
         $numRows = mysqli_num_rows($resultSet);
+
+        // end v1 search block
+
+        // v2 search funtion
+        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string);
+        $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
+        // full text
+        $sql = "SELECT * FROM tickets_2 WHERE MATCH(subject, answer, family) AGAINST (' ";
+        $sql .= $search_string;
+        $sql .= "' IN NATURAL LANGUAGE MODE);";
+
+        print($sql);
+        $resultSet = mysqli_query($conn, $sql);
+        if ($resultSet) {
+            print("Queried successfully");
+        } else {
+            print("Unable to query");
+        }
+        $numRows = mysqli_num_rows($resultSet);
+        // end v2
+        print($sql);
+
+        /*// v3 search function
+        $search_string = preg_replace('/(?![-])[[:punct:]]/', '', $search_string); 
+        $search_terms = preg_split('@ @', $search_string, NULL, PREG_SPLIT_NO_EMPTY);
+        $sql = "SELECT * FROM tickets_2 WHERE MATCH(subject, answer, family) AGAINST (' ";
+        $sql .= $search_string;
+        $sql .="' IN NATURAL LANGUAGE MODE);";
+        $stmt = $conn->prepare();
+        $stmt->bind_param("s", $search_string);
+        $resultSet = $stmt->execute();
+        */ // end v3 search function
 
         // Pagination
         // How many records per page
@@ -182,16 +222,37 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/dbhandler.inc.php');
 
 
     <div style="text-align: center;">
-        <div style="width: 500px; margin: 0 auto;"><?php
-                                                    for ($page = 1; $page <= $totalPages + 1; $page++) {
-                                                        echo '<a href="search_result.php?search_string=' . $search_string . '&page=' . $page . '">' . $page . '</a>  ';
-                                                    }
-                                                    ?></div>
+        <div style="width: 500px; margin: 0 auto;">
+            <?php
+            for ($page = 1; $page <= $totalPages + 1; $page++) {
+                echo '<a href="search_result.php?search_string=' . $search_string . '&page=' . $page . '">' . $page . '</a>  ';
+            }
+            ?></div>
     </div>
 
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link px-2 text-muted">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="product_family.php" class="nav-link px-2 text-muted">Product Family</a>
+                </li>
+                <li class="nav-item">
+                    <a href="components.php" class="nav-link px-2 text-muted">Components</a>
+                </li>
+                <li class="nav-item">
+                    <a href="common_questions.php" class="nav-link px-2 text-muted">Common Questions</a>
+                </li>
+            </ul>
+            <p class="text-center text-muted">@ 2022 Supermicro</p>
+        </footer>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
+
 </body>
 
 </html>

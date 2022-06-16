@@ -1,5 +1,6 @@
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
+//include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
+include_once "dbhandler.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,9 +11,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="css/results.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
     <!--link href="stylesheet" href = "style.css"-->
     <title>Search Results</title>
     <!--***requires fixes or can omit***-->
@@ -41,217 +42,25 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a href="../product_family.php" class="nav-link">Product Family</a>
                     </li>
                     <li class="nav-item active">
                         <a href="../components.php" class="nav-link active">Components</a>
                     </li>
-                    <li class="nav-item">
+                    <li  class="nav-item">
                         <a href="../common_questions.php" class="nav-link" aria-current="page"> Common Questions</a>
                     </li>
                 </ul>
-                <form action="../search_result.php" method="get">
+                <form class="searchB" action="../search_result.php" method="get">
                         <input name="search_string" type="search"/> 
-                        <input type="submit"/>
+                        <button type="submit" class="btn btn-primary">search</button>
                 </form>
             </div>
         </div>
     </nav>
 
-    <div class="row">
-        <aside class="col-sm-4">
-            <p>Filters</p>
-
-            <div class="card">
-                <article class="card-group-item">
-                    <header class="card-header">
-                        <h6 class="title">Product Family </h6>
-                    </header>
-                    <div class="filter-content">
-                        <div class="card-body">
-                            <form>
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        Ultra
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        Storage
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        Twin
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        CloudDC
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        GPU
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        Fat Twin
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        Big Twin
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        Mainstream
-                                    </span>
-                                </label> <!-- form-check.// -->
-                                <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-label">
-                                        Micro Cloud
-                                    </span>
-                                </label> <!-- form-check.// -->
-                            </form>
-
-                        </div> <!-- card-body.// -->
-                    </div>
-                </article> <!-- card-group-item.// -->
-
-                <article class="card-group-item">
-                    <header class="card-header">
-                        <h6 class="title">Choose Tag </h6>
-                    </header>
-                    <div class="filter-content">
-                        <div class="card-body">
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    General
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    GPU/AOC
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    CPU
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    Memory
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    Quotation
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    Configurator
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    SAP
-                                </span>
-                            </label>
-                        </div> <!-- card-body.// -->
-                    </div>
-                </article> <!-- card-group-item.// -->
-            </div> <!-- card.// -->
-
-
-            <div class="card">
-                <article class="card-group-item">
-                    <header class="card-header">
-                        <h6 class="title">Status </h6>
-                    </header>
-                    <div class="filter-content">
-                    <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    Open
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    Pending
-                                </span>
-                            </label>
-                            <label class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                <span class="form-check-label">
-                                    Closed
-                                </span>
-                            </label>
-                    </div>
-                </article> <!-- card-group-item.// -->
-            </div> <!-- card.// -->
-
-            <div class="card">
-                <article class="card-group-item">
-                    <header class="card-header">
-                        <h6 class="title"># of CPUs </h6>
-                    </header>
-                    <div class="filter-content">
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Min</label>
-                                    <input type="number" class="form-control" id="inputEmail4" placeholder="1">
-                                </div>
-                                <div class="form-group col-md-6 text-right">
-                                    <label>Max</label>
-                                    <input type="number" class="form-control" placeholder="4">
-                                </div>
-                            </div>
-                        </div> <!-- card-body.// -->
-                    </div>
-                </article> <!-- card-group-item.// -->
-
-                <article class="card-group-item">
-                    <div class="filter-content">
-                        <div class="card-body">
-                            <label class="btn btn-danger">
-                                <input class="" type="checkbox" name="myradio" value="">
-                                <span class="form-check-label">Delete</span>
-                            </label>
-
-                            <label class="btn btn-primary">
-                                <input class="" type="checkbox" name="myradio" value="">
-                                <span class="form-check-label">Apply</span>
-                            </label>
-                        </div> <!-- card-body.// -->
-                    </div>
-                </article> <!-- card-group-item.// -->
-
-        </aside> <!-- col.// -->
-    </div> <!-- row.// -->
+   
 
     <?php
         ini_set('display_errors', 1);
@@ -325,9 +134,28 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
         ?></div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-        </script>
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link px-2 text-muted">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="product_family.php" class="nav-link px-2 text-muted">Product Family</a>
+                </li>
+                <li class="nav-item">
+                    <a href="components.php" class="nav-link px-2 text-muted">Components</a>
+                </li>
+                <li class="nav-item">
+                    <a href="common_questions.php" class="nav-link px-2 text-muted">Common Questions</a>
+                </li>
+            </ul>
+            <p class="text-center text-muted">@ 2022 Supermicro</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
