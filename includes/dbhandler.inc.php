@@ -7,6 +7,13 @@ $dbUsername = "webdev";
 $dbPassword = "SM95131*";
 $dbName = "FAQ";
 
+
+/*// Local
+$dbServername = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "FAQ";
+*/
 $conn = mysqli_connect(
     $dbServername, 
     $dbUsername, 
