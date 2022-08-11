@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 //include($_SERVER['DOCUMENT_ROOT'].'/includes/dbhandler.inc.php')
 include_once "dbhandler.inc.php";
 ?>
@@ -34,8 +33,7 @@ include_once "dbhandler.inc.php";
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container">
             <a href="../index.php" class="navbar-brand">
-                <img src="https://www.supermicro.com/sites/default/files/Super_Micro_Computer_Logo.svg" height="50"
-                    width="100" />
+                <img src="https://www.supermicro.com/sites/default/files/Super_Micro_Computer_Logo.svg" height="50" width="100" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
@@ -52,47 +50,49 @@ include_once "dbhandler.inc.php";
                         <a href="../common_questions.php" class="nav-link" aria-current="page"> Common Questions</a>
                     </li>
                 </ul>
-                <form action="../search_result.php" method="get">
-                        <input name="search_string" type="search"/> 
-                        <input type="submit"/>
-                </form>
             </div>
         </div>
     </nav>
 
-   
-    <?php
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
+    <div class="searchBar">
+        <form action="../search_result.php" method="get">
+            <input name="bar" placeholder="search" type="search" />
+            <button type="submit" class="btn btn-primary">Go</button>
+        </form>
+    </div>
 
-        $family = mysqli_real_escape_string($conn, $_GET['family']);
-        // How many records per page
-        $rpp = 5;     
-        // Check for set page
-        isset($_GET['page']) ? $page = $_GET['page'] : $page = 0;
-        // Check for page 1
-        if($page > 1){
-            $start = ($page * $rpp) - $rpp;
-        } else {
-            $start = 0;
-        }
-        // Query for total records
-        $resultSet = mysqli_query($conn, "SELECT * FROM tickets_2 WHERE family='".mysqli_escape_string($conn,$family)."';");       
-        // Get total number of records
-        $numRows = mysqli_num_rows($resultSet);
-        
-        // Get total number of pages
-        $totalPages = $numRows/ $rpp;
-        
-        // Query results
-        $resultSet = mysqli_query($conn, "SELECT * FROM tickets_2 WHERE family='{$family}' LIMIT $start, $rpp;");
-        while($row = mysqli_fetch_assoc($resultSet)){
-            $subject = $row['subject'];
-            $answer = $row['answer'];
-            $url = $row['url'];
-            $status = $row['status'];
-            $message = <<<RES
+    <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $family = mysqli_real_escape_string($conn, $_GET['family']);
+    // How many records per page
+    $rpp = 5;
+    // Check for set page
+    isset($_GET['page']) ? $page = $_GET['page'] : $page = 0;
+    // Check for page 1
+    if ($page > 1) {
+        $start = ($page * $rpp) - $rpp;
+    } else {
+        $start = 0;
+    }
+    // Query for total records
+    $resultSet = mysqli_query($conn, "SELECT * FROM tickets_2 WHERE family='" . mysqli_escape_string($conn, $family) . "';");
+    // Get total number of records
+    $numRows = mysqli_num_rows($resultSet);
+
+    // Get total number of pages
+    $totalPages = $numRows / $rpp;
+
+    // Query results
+    $resultSet = mysqli_query($conn, "SELECT * FROM tickets_2 WHERE family='{$family}' LIMIT $start, $rpp;");
+    while ($row = mysqli_fetch_assoc($resultSet)) {
+        $subject = $row['subject'];
+        $answer = $row['answer'];
+        $url = $row['url'];
+        $status = $row['status'];
+        $message = <<<RES
             <div class="container col-sm-8">
                 <div class="accordion mt-3 mb-3" id="commonQuestions">
                     <div class="accordion-item mb-3">
@@ -119,16 +119,16 @@ include_once "dbhandler.inc.php";
                 </div>
             </div>
             RES;
-            echo $message;      
-        }
+        echo $message;
+    }
     ?>
 
     <div style="text-align: center;">
-      <div style="width: 500px; margin: 0 auto;"><?php
-        for($page=1; $page <= $totalPages + 1; $page++){
-            echo '<a href="family_results.inc.php?family='.$family.'&page='.$page.'">'. $page .'</a>  ';
-        }
-        ?></div>
+        <div style="width: 500px; margin: 0 auto;"><?php
+                                                    for ($page = 1; $page <= $totalPages + 1; $page++) {
+                                                        echo '<a href="family_results.inc.php?family=' . $family . '&page=' . $page . '">' . $page . '</a>  ';
+                                                    }
+                                                    ?></div>
     </div>
 
     <div class="container">

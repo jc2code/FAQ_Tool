@@ -37,8 +37,8 @@
                     </li>
                 </ul>
                 <form action="search_result.php" method="get">
-                        <input name="search_string" type="search"/> 
-                        <button type="submit" class="btn btn-primary">search</button>
+                        <input name="search_string" placeholder= "Search" type="search"/> 
+                        <button type="submit" class="btn btn-primary">Go</button>
                 </form>
             </div>
         </div>

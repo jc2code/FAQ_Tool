@@ -39,8 +39,8 @@
                         </li>
                     </ul>
                     <form action="search_result.php" method="get">
-                        <input name="search_string" type="search"/> 
-                        <button type="submit" class="btn btn-primary">search</button>
+                        <input class= "bar" name="search_string" placeholder= "Search" type="search" /> 
+                        <button type="submit" class="btn btn-primary">Go</button>
                     </form>
                 </div>
             </div>
@@ -48,7 +48,7 @@
     </div>
 
     <!--Tiles-->
-    <section class="p-5">
+     <section class="p-5">
         <div class="container">
             <div class="row row-cols-4">
                 <div class="col-s g-4 d-flex align-items">

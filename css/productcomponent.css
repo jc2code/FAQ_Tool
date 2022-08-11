@@ -25,3 +25,19 @@ a {
     text-decoration: none;
     color:black;
 }
+
+.bar{
+    width: 80px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  transition: width 0.5s ease-in-out;
+}
+
+.bar:focus{
+    width: 75%; 
+    transform: 100%, center;
+}

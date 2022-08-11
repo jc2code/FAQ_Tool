@@ -49,13 +49,12 @@
 
                 <form action="search_result.php" method="get">
                     <div class="form-outline">
-                        <input name="search_string" type="search" class="form control" />
+                        <input name="search_string" placeholder="Search" type="search" class="form control" />
                         <!--<label class="form label" for="form1"> Search </label>-->
-                        <button type="submit" class="btn btn-primary">search</button
+                        <button type="submit" class="btn btn-primary">Go</button>
                     </div>
                 </form>
             </div>
-
         </div>
     </nav>
 
