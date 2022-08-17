@@ -40,7 +40,7 @@
                         <a href="product_family.php" class="nav-link">Product Family</a>
                     </li>
                     <li class="nav-item">
-                        <a href="components.php" class="nav-link">Components</a>
+                        <a href="components.php" class="nav-link">Compnents</a>
                     </li>
                     <li class="nav-item active">
                         <a href="common_questions.php" class="nav-link active" aria-current="page"> Common Questions</a>
